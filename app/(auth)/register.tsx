@@ -1,11 +1,11 @@
-import React, { useState, useContext } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert } from 'react-native';
-import { useTranslation } from 'react-i18next';
-import i18n from '../i18n';
-import { useRouter } from 'expo-router';
-import { ThemeContext } from '../contexts/ThemeContext';
-import { lightColors, darkColors } from '../constants/Colors';
 import { Ionicons } from '@expo/vector-icons';
+import { useRouter } from 'expo-router';
+import React, { useContext, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { Alert, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { darkColors, lightColors } from '../../constants/Colors';
+import { ThemeContext } from '../../contexts/ThemeContext';
+import i18n from '../../i18n';
 
 
 export default function RegisterScreen() {

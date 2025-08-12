@@ -1,12 +1,18 @@
+import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
-import * as SecureStore from 'expo-secure-store';
 import React, { useContext, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Alert, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
-import { darkColors, lightColors } from '../constants/Colors';
-import { ThemeContext } from '../contexts/ThemeContext';
-import { Ionicons } from '@expo/vector-icons';
-import i18n from '../i18n';
+import { Alert, Platform, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { darkColors, lightColors } from '../../constants/Colors';
+import { ThemeContext } from '../../contexts/ThemeContext';
+import i18n from '../../i18n';
+import { apiClient } from '@/utils/apiClient';
+
+let SecureStore: typeof import('expo-secure-store') | undefined;
+
+if (Platform.OS !== 'web') {
+  SecureStore = require('expo-secure-store');
+}
 
 export default function LoginScreen() {
   const { t } = useTranslation();
@@ -27,7 +33,7 @@ export default function LoginScreen() {
     setLoading(true);
 
     try {
-      const response = await fetch('http://localhost:8080/api/auth/login', {
+      const response = await apiClient("/auth/login", {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password }),
@@ -35,8 +41,13 @@ export default function LoginScreen() {
 
       if (response.ok) {
         const token = await response.text();
-        await SecureStore.setItemAsync('jwtToken', token);
-        router.push('/');
+        if (Platform.OS === 'web') {
+          localStorage.setItem('jwtToken', token);
+        } else {
+          await SecureStore?.setItemAsync('jwtToken', token);
+        }
+
+        router.push('/todolists');
       } else {
         const errorText = await response.text();
         setError(errorText || t('login.loginFailed'));
