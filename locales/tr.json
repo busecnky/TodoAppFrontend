@@ -1,9 +1,25 @@
 {
-  "welcome": "Hoş geldiniz!",
   "login": {
-    "title": "Giriş Yap",
+    "invalidCredentials": "Geçersiz kullanıcı adı veya şifre",
+    "loginFailed": "Giriş başarısız",
+    "noAccount": "Hesabınız yok mu?",
+    "loggedIn": "Artık giriş yaptınız."
+  },
+  "register": {
+    "accountCreated": "Hesap oluşturuldu. Giriş yapabilirsiniz.",
+    "registerFailed": "Kayıt işlemi başarısız.",
+    "alreadyHaveAccount": "Zaten hesabınız var mı?"
+  },
+  "common": {
+    "loading": "Yükleniyor...",
+    "error": "Bir hata oluştu. Lütfen tekrar deneyin.",
+    "success": "İşlem başarılı.",
+    "fillAllFields": "Lütfen tüm alanları doldurun.",
+    "networkError": "Ağ hatası. Lütfen tekrar deneyin.",
     "username": "Kullanıcı Adı",
     "password": "Şifre",
-    "button": "Giriş"
+    "email": "E-posta",
+    "login": "Giriş Yap",
+    "register": "Kayıt Ol"
   }
 }

@@ -1,9 +1,25 @@
 {
-  "welcome": "Welcome!",
   "login": {
-    "title": "Login",
+    "invalidCredentials": "Invalid credentials",
+    "loginFailed": "Login failed",
+    "noAccount": "Don't have an account?",
+    "loggedIn": "You are now logged in."
+  },
+  "register": {
+    "accountCreated": "Account created. You can now log in.",
+    "registerFailed": "Registration failed.",
+    "alreadyHaveAccount": "Already have an account?"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred. Please try again.",
+    "success": "Operation successful.",
+    "fillAllFields": "Please fill in all fields.",
+    "networkError": "Network error. Please try again.",
     "username": "Username",
     "password": "Password",
-    "button": "Sign In"
+    "email": "Email",
+    "login": "Login",
+    "register": "Register"
   }
 }
